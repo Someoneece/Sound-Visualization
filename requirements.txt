@@ -1,6 +1,9 @@
-matplotlib.pyplot
-scipy.io
-scipy.fftpack
+matplotlib
+pyplot
+scipy
+io
+scipy
+fftpack
 numpy
 wave
 sys
