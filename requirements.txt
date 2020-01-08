@@ -4,3 +4,5 @@ scipy.fftpack
 numpy
 wave
 sys
+wavfile
+fft
