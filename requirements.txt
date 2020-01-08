@@ -1,1 +1,6 @@
-pydub
+matplotlib.pyplot
+scipy.io
+scipy.fftpack
+numpy
+wave
+sys
