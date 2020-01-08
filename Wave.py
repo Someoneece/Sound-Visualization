@@ -1,12 +1,22 @@
-from pydub import AudioSegment
+import matplotlib.pyplot as plt
+from scipy.io import wavfile as wav
+from scipy.fftpack import fft
+import numpy as np
+import wave
+import sys
 
-sound = AudioSegment.from_mp3("test.mp3")
+spf = wave.open('/content/file_example_WAV_1MG.wav','r')
 
-# get raw audio data as a bytestring
-raw_data = sound.raw_data
-# get the frame rate
-sample_rate = sound.frame_rate
-# get amount of bytes contained in one sample
-sample_size = sound.sample_width
-# get channels
-channels = sound.channels
+#Extract Raw Audio from Wav File
+signal = spf.readframes(-1)
+signal = np.fromstring(signal, 'Int16')
+fs = spf.getframerate()
+fft_out = fft(signal)
+
+
+Time=np.linspace(0, len(signal)/fs, num=len(signal))
+
+plt.figure(1)
+plt.title('Signal Wave...')
+plt.plot(Time,fft_out)
+plt.show()
